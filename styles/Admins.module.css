@@ -1,0 +1,429 @@
+.admins {
+  height: 100vh;
+  width: 100%;
+}
+.adminBody {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.create {
+  position: absolute;
+  height: 10rem;
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 5%;
+  right: 5%;
+  font-size: 10rem;
+  color: transparent;
+  background: linear-gradient(45deg, var(--main-theme), springgreen);
+  -webkit-background-clip: text;
+  border-radius: 5rem;
+  box-shadow: 3px 3px 10px #6d8dad;
+  border: 0.1rem solid #ced6dd;
+  cursor: pointer;
+}
+.create:active {
+  box-shadow: inset 3px 3px 10px #6d8dad;
+}
+.postPage {
+  position: relative;
+}
+.modal,
+.modalActive {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+.modal {
+  transform: scale(1, 1);
+  transition: 0.5s;
+}
+.modalActive {
+  transform: scale(0, 0);
+  transition: 0.5s;
+}
+.createPost {
+  height: 70%;
+  width: 65%;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+.upSide {
+  flex-basis: 88%;
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+}
+.heading {
+  flex-basis: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem 0 4rem;
+  border-bottom: 0.1rem solid var(--main-theme);
+}
+.heading h1 {
+  color: rgb(0, 0, 95);
+  font-size: 2.6rem;
+  width: max-content;
+  position: relative;
+}
+.heading h1::before {
+  content: "";
+  position: absolute;
+  top: 105%;
+  left: 0;
+  height: 0.4rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  background: var(--main-theme);
+}
+.heading span {
+  font-size: 2rem;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+}
+.fields {
+  flex-basis: 85%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  overflow: scroll;
+}
+.field1,
+.field2,
+.field3,
+.field5 {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0 0 0;
+}
+.field4 {
+  margin: 2rem 0 2rem 0;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.fields::-webkit-scrollbar {
+  display: none;
+}
+.fieldWrapper {
+  display: flex;
+  width: 45%;
+  flex-direction: column;
+  position: relative;
+}
+.hobbie {
+  position: relative;
+}
+.suggestions {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  max-height: 30rem;
+  z-index: 10;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px #6d8dad;
+  border: 0.1rem solid #ced6dd;
+  overflow: scroll;
+}
+.suggestions::-webkit-scrollbar {
+  display: none;
+}
+.country {
+  font-size: 1.6rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  cursor: pointer;
+}
+.country:hover {
+  background: var(--main-light);
+}
+.country img {
+  height: 50%;
+  width: 10%;
+  margin-right: 1.5rem;
+}
+.fieldWrapper label,
+.addCourse label,
+.field4 label,
+.description label,
+.fees label {
+  color: rgb(0, 0, 95);
+  font-size: 1.8rem;
+}
+.fieldWrapper input,
+.fees input {
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: 0.1rem solid var(--main-theme);
+  font-weight: bold;
+  transition: 0.2s;
+}
+.fieldWrapper input::placeholder,
+.fees input::placeholder,
+.fieldWrapper input,
+.fees input {
+  font-size: 1.6rem;
+  color: var(--main-theme);
+}
+.fieldWrapper input::placeholder,
+.fees input::placeholder {
+  font-weight: normal;
+}
+.fieldWrapper input:focus,
+.fees input:focus {
+  outline: none;
+  border: 0.4rem solid rgba(24, 121, 248, 0.5);
+}
+.addCourse,
+.addmission {
+  display: flex;
+  width: 45%;
+  flex-direction: column;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.content div {
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  color: var(--main-theme);
+  font-weight: bold;
+  background: var(--main-light);
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  position: relative;
+}
+.content div i {
+  position: absolute;
+  top: -5%;
+  right: -3%;
+}
+.wrap {
+  display: flex;
+  align-items: flex-end;
+}
+.linkCover {
+  height: 6rem;
+  position: relative;
+  overflow: hidden;
+  transition: 0.2s;
+}
+.linkActive {
+  height: 12rem;
+}
+.wrap .fieldWrapper {
+  flex-basis: 100%;
+}
+.wrap[data-value="link"] .fieldWrapper {
+  flex-basis: 85%;
+  padding-right: 1rem;
+}
+.wrap button {
+  flex-basis: 15%;
+}
+.wrap button,
+.fileWrap button {
+  height: 5rem;
+  font-size: 2rem;
+  color: white;
+  background: var(--main-theme);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+.addmission select {
+  height: 2.5rem;
+  width: 30%;
+  border: 0.1rem solid var(--main-theme);
+  margin: 1rem 0.5rem;
+}
+.addmission select:focus {
+  outline: none;
+}
+.winter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.winter p {
+  font-size: 1.4rem;
+  color: rgb(0, 0, 95);
+}
+.fileWrap {
+  display: flex;
+  width: 100%;
+}
+.fileWrap button {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  flex-basis: 8%;
+}
+.field4 input {
+  margin-top: 0.5rem;
+  height: 5rem;
+  flex-basis: 100%;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--main-theme);
+}
+.selected {
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.selected div {
+  margin: 1.5rem 1rem;
+  height: 15rem;
+  width: 20rem;
+  border-radius: 1rem;
+  position: relative;
+}
+.selected div img {
+  height: 100%;
+  width: 100%;
+}
+.selected div i {
+  position: absolute;
+  top: -7%;
+  left: -7%;
+  font-size: 2rem;
+  color: var(--main-theme);
+}
+.description {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.description textarea {
+  height: 15rem;
+  width: 100%;
+  border: 0.1rem solid var(--main-theme);
+  border-radius: 0.5rem;
+  color: var(--main-theme);
+  padding: 1rem;
+  font-size: 1.6rem;
+}
+.description textarea::-webkit-scrollbar {
+  display: none;
+}
+.description textarea:focus {
+  outline: none;
+}
+.fees {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+}
+.downSide {
+  flex-basis: 12%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 0.1rem solid var(--main-theme);
+}
+.downSide button {
+  height: 4rem;
+  width: 10rem;
+  font-size: 1.6rem;
+  margin: 0 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.downSide button:nth-child(1) {
+  background: red;
+}
+.downSide button:nth-child(2) {
+  position: relative;
+  width: 15rem;
+  background: var(--main-theme);
+}
+.downSide button:disabled {
+  background: rgb(200, 200, 200);
+  cursor: not-allowed;
+}
+.spinner {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  border: 0.3rem solid white;
+  border-top-color: var(--main-theme);
+  border-bottom-color: var(--main-theme);
+  animation: animate 1s linear infinite;
+}
+@keyframes animate {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@media (max-width: 770px) {
+  .createPost {
+    height: 90%;
+    width: 90%;
+  }
+  .upSide {
+    height: 90%;
+  }
+  .downSide {
+    height: 10%;
+  }
+  .heading {
+    flex-basis: 12%;
+  }
+  .fields {
+    flex-basis: 88%;
+  }
+  .field1,
+  .field2,
+  .field3,
+  .field5 {
+    flex-wrap: wrap;
+  }
+  .fieldWrapper,
+  .addCourse,
+  .addmission,
+  .description,
+  .fees {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .linkCover {
+    height: 7rem;
+  }
+  .linkActive {
+    height: 14rem;
+  }
+  .field4 {
+    padding: 0;
+  }
+}

@@ -1,0 +1,64 @@
+.complete {
+  height: 20rem;
+  border: none;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #0038ff, #0085ff);
+  box-shadow: -0.5rem 0.5rem 0.6rem rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  width: 100%;
+  margin: 1.2rem 0;
+}
+.upBox {
+  display: flex;
+  flex-direction: row;
+}
+.percentage {
+  color: white;
+  font-size: 3rem;
+  border: 5px solid white;
+  position: relative;
+  height: 9rem;
+  width: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4.5rem;
+  background: rgba(255, 255, 255, 0.25);
+}
+.info {
+  margin-left: 3rem;
+  color: white;
+  padding-top: 0.6rem;
+}
+.info h2 {
+  font-size: 2.4rem;
+  font-weight: lighter;
+  margin-bottom: 0.5rem;
+}
+.info p {
+  font-size: 1.4rem;
+}
+.downBox {
+  padding: 0.8rem;
+  text-align: center;
+}
+.downBox button {
+  padding: 1.5rem 3rem;
+  border-radius: 2.5rem;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--main-theme);
+  cursor: pointer;
+  background: white;
+}
+@media (max-width: 770px) {
+  .info {
+    margin-left: 2rem;
+  }
+  .info h2 {
+    font-size: 2rem;
+  }
+}

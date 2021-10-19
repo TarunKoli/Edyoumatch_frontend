@@ -1,0 +1,107 @@
+.loans {
+  height: 100vh;
+  max-width: 100%;
+}
+.loansBody {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.wrap {
+  flex-basis: 100%;
+  padding: 3rem 5rem 0 5rem;
+  height: 100%;
+  overflow: scroll;
+}
+.wrap::-webkit-scrollbar {
+  display: none;
+}
+.wrap h1 {
+  font-size: 3rem;
+  color: rgb(0, 0, 95);
+  margin: 0 0 2rem 0;
+}
+.boxWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  border: 0.2rem solid var(--main-theme);
+  width: 32rem;
+  height: 13rem;
+  position: relative;
+  margin: 3rem 0;
+}
+.cardWrap {
+  background: white;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: -2.5%;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  background: linear-gradient(135deg, var(--main-theme), rgb(0, 194, 129));
+  z-index: -10;
+  transform: skew(8deg, 2deg);
+}
+.card h1 {
+  font-weight: normal;
+  font-size: 2.4rem;
+  z-index: 5;
+  overflow: hidden;
+  padding: 1rem;
+}
+.card button {
+  background: var(--main-theme);
+  color: white;
+  height: 3.5rem;
+  width: 12rem;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  z-index: 10;
+  align-self: flex-end;
+}
+.card span {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  font-size: 8rem;
+  color: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  letter-spacing: 10px;
+  transition: 0.2s;
+}
+.card:hover span {
+  top: 40%;
+  color: rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 1050px) {
+  .wrap {
+    flex-basis: 80%;
+    padding: 2rem;
+  }
+}
+@media (max-width: 770px) {
+  .wrap {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 570px) {
+  .card {
+    width: 100%;
+  }
+}

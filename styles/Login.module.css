@@ -1,0 +1,162 @@
+.login {
+  max-height: 100vh;
+  max-width: 1600px;
+  position: relative;
+}
+.heading {
+  position: absolute;
+  color: var(--main-theme);
+  font-size: 6rem;
+  writing-mode: vertical-rl;
+  left: 2.5%;
+  top: 50%;
+  transform: rotateZ(180deg) translateY(50%);
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 70rem;
+}
+.info {
+  flex-basis: 70%;
+  height: 100%;
+  padding-left: 12%;
+  padding-top: 5%;
+  position: relative;
+}
+.info[data-value="contact"] {
+  flex-basis: 60%;
+}
+.info h1 {
+  font-size: 6rem;
+  line-height: 8rem;
+  margin-bottom: 8%;
+  pointer-events: none;
+}
+.info p {
+  font-size: 2rem;
+  width: 50%;
+}
+.info p > a {
+  color: var(--main-theme);
+  cursor: pointer;
+}
+.colorBlur {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -65%);
+  height: 30rem;
+  width: 30rem;
+  background: #00a3fe;
+  filter: blur(160px);
+  z-index: -1;
+}
+.info img {
+  position: absolute;
+  bottom: 5%;
+  right: 2%;
+  width: 55%;
+  z-index: -1;
+}
+.info img[data-value="forgot"] {
+  width: 45%;
+  right: 8%;
+}
+.info img[data-value="contact"] {
+  width: 40%;
+  right: 10%;
+  bottom: 10%;
+}
+
+@media (max-width: 1050px) {
+  .login {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .heading {
+    writing-mode: horizontal-tb;
+    transform: rotateZ(0) translate(-50%, -85%);
+    left: 50%;
+  }
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  }
+  .info {
+    flex-basis: 50%;
+    width: 100%;
+  }
+  .info[data-value="contact"] {
+    flex-basis: 35%;
+  }
+  .info h1 {
+    font-size: 5rem;
+  }
+  .info img[data-value="forgot"] {
+    width: 30%;
+    right: 10%;
+  }
+  .info img[data-value="contact"] {
+    width: 40%;
+    right: 5%;
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+  .colorBlur {
+    left: 25%;
+    transform: translate(-25%, -40%);
+    height: 20rem;
+    width: 20rem;
+    filter: blur(130px);
+  }
+}
+@media (max-width: 770px) {
+  .login {
+    height: 100%;
+    display: flex;
+    overflow: scroll;
+  }
+  .info h1,
+  .info p,
+  .info .colorBlur {
+    display: none;
+  }
+  .heading {
+    writing-mode: horizontal-tb;
+    left: 3%;
+    top: 3%;
+    transform: rotateZ(0) translateY(0);
+    font-size: 3.2rem;
+    font-weight: 800;
+    z-index: 10;
+  }
+  .wrapper {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .info {
+    position: absolute;
+    top: 1%;
+    right: 0;
+    width: 60%;
+    height: 20%;
+  }
+  .info img {
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  .info img[data-value="contact"] {
+    bottom: 25%;
+    width: 70%;
+    right: 0;
+    transform: translateY(0);
+  }
+  .info img[data-value="forgot"] {
+    display: none;
+  }
+}

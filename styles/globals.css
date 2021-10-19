@@ -1,16 +1,64 @@
-html,
-body {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+:root {
+  --nav-bg: #252509;
+  --main-theme: #006eff;
+  --main-light: rgba(0, 110, 255, 0.25);
+  --main-shadow: rgba(0, 0, 0, 0.2);
+  --main-light2: rgb(230, 245, 250);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+#structure {
+  display: flex;
+  height: 100vh;
+  max-width: 1600px;
+  overflow: hidden;
+}
+#cover {
+  width: 80%;
+}
+#authCover {
+  width: 100%;
+}
+.myToast {
+  font-size: 1.6rem !important;
+  text-transform: capitalize;
+}
+@media (max-width: 770px) {
+  #structure {
+    display: block;
+  }
+  #cover {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 350px) {
+  html {
+    font-size: 40%;
+  }
+}
+
+body {
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
