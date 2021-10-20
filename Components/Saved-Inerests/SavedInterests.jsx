@@ -8,6 +8,7 @@ const SavedInterest = () => {
   const [path, setPath] = useContext(PathContext);
   const [moreDetails, setMoreDetails] = useState(false);
   let [index, setIndex] = useState(0);
+  let [postIndex, setPostIndex] = useState(0);
   const [posts, setPosts] = useState([]);
 
   useEffect(async () => {
@@ -41,12 +42,14 @@ const SavedInterest = () => {
     <section className={styles.saved}>
       <h1>Saved Interests</h1>
       <div className={styles.postContainer}>
-        {posts.map((college, i) => {
+        {posts.map((college, p) => {
           return (
             <div
-              key={i}
+              key={p}
               className={`${styles.post} posts`}
               onClick={(e) => {
+                postIndex !== p ? setIndex(0) : setIndex(index);
+                setPostIndex(p);
                 let position = e.target.getBoundingClientRect();
                 let totalWidth = position.left + e.target.clientWidth / 2;
                 if (e.clientX > totalWidth) {
@@ -62,7 +65,7 @@ const SavedInterest = () => {
                     <div
                       key={i}
                       style={
-                        index === i
+                        index === i && postIndex === p
                           ? { background: "white" }
                           : { background: "rgba(255,255,255,0.5)" }
                       }
@@ -77,7 +80,13 @@ const SavedInterest = () => {
                       key={i}
                       src={val}
                       style={
-                        index === i ? { display: "block" } : { display: "none" }
+                        index > 0
+                          ? index === i && postIndex === p
+                            ? { display: "block" }
+                            : postIndex === p
+                            ? { display: "none" }
+                            : { display: "block" }
+                          : { display: "block" }
                       }
                       draggable="true"
                     />

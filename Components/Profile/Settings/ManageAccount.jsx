@@ -1,9 +1,68 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../../../styles/Profile/SettingsStyles/Options.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import cookies from "nookies";
+
 const ManageAccount = () => {
   const [account, setAccount] = useState(false);
   const [modal, setModal] = useState(false);
+  const [pass, setPass] = useState("");
+  const [error, setError] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setError(null);
+    }
+  }, [error]);
+
+  const handleAccount = async () => {
+    if (!pass) {
+      return setError("Please enter password !!");
+    }
+    try {
+      const data = {
+        token: cookies.get("jwt"),
+        pass: pass,
+      };
+      const res = await axios({
+        url: "http://localhost:8080/users/deleteAccount",
+        method: "DELETE",
+        data: data,
+        withCredentials: true,
+      });
+      if (res.status === 200) {
+        setPass("");
+        toast.success(res.data.msg, {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(() => {
+          router.push("/");
+        }, 2000);
+      }
+    } catch (err) {
+      setError(err.response.data.msg);
+    }
+  };
 
   return (
     <div
@@ -47,6 +106,10 @@ const ManageAccount = () => {
                 type="password"
                 name="pass"
                 placeholder="Confirm your password"
+                value={pass}
+                onChange={(e) => {
+                  setPass(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -58,7 +121,7 @@ const ManageAccount = () => {
             >
               Cancel
             </button>
-            <button>Delete My Account</button>
+            <button onClick={handleAccount}>Delete My Account</button>
           </div>
         </div>
       </div>
