@@ -368,11 +368,24 @@
 .viewNav {
   display: none;
 }
+@media (max-width: 1025px) {
+  .homeBody {
+    width: 100vw;
+  }
+  .courses {
+    flex-basis: 70%;
+  }
+  .rightSide {
+    flex-basis: 30%;
+    height: 70%;
+  }
+}
 
 @media (max-width: 770px) {
   .homeBody {
     background: white;
     flex-wrap: wrap;
+    width: 100%;
   }
   .greet {
     flex-wrap: wrap;

@@ -281,3 +281,13 @@
 .security div:nth-child(1) {
   margin-right: 2rem;
 }
+
+@media (max-width: 800px) {
+  .modal .form {
+    height: 60%;
+    width: 85%;
+  }
+  .confirm input {
+    width: 80%;
+  }
+}

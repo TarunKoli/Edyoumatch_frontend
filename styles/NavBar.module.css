@@ -86,7 +86,7 @@
 .down img {
   width: 90%;
 }
-@media (max-width: 770px) {
+@media (max-width: 1025px) {
   .nav {
     position: absolute;
     z-index: 50;

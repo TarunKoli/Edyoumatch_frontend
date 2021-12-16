@@ -5,8 +5,10 @@
   flex-direction: column;
   height: 100%;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
+}
+.form {
+  justify-content: center;
 }
 .form[data-value="contact"] {
   flex-basis: 40%;

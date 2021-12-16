@@ -1,13 +1,17 @@
 .saved {
   height: 100%;
   width: 100%;
+}
+.test {
+  height: 100vh;
   overflow: scroll;
   padding: 3rem 0 3rem 0;
+  background-color: var(--main-light2);
 }
-.saved::-webkit-scrollbar {
+.test::-webkit-scrollbar {
   display: none;
 }
-.saved > h1 {
+.test > h1 {
   padding-left: 3rem;
   font-size: 3rem;
   color: rgb(0, 0, 95);
@@ -26,6 +30,16 @@
   position: relative;
   margin: 2rem 0;
   box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+.postWrapper {
+  position: relative;
+}
+.postWrapper > i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 4rem;
+  z-index: 1;
 }
 .post .carousel {
   width: 100%;

@@ -11,7 +11,7 @@ const Header = (props) => {
         <Link href="/contact-us">
           <li>Contact&nbsp;us</li>
         </Link>
-        <Link href="https://firebasestorage.googleapis.com/v0/b/edyoumatch.appspot.com/o/EdYouMatch_Privacy_Policy.pdf?alt=media&token=4decc7c0-e2f7-45ba-9f79-e8d64b0c1eb1">
+        <Link href="https://firebasestorage.googleapis.com/v0/b/edyoumatch-22576.appspot.com/o/Privacy%20Policy.pdf?alt=media&token=420e94e2-58a2-43aa-b04c-fbaac2966eb0">
           <li>Privacy&nbsp;Policy</li>
         </Link>
       </div>

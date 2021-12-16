@@ -45,7 +45,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  background: rgb(110, 110, 110);
+  background: rgb(158, 158, 158);
   padding-bottom: 2rem;
   overflow: hidden;
   z-index: 10;
@@ -70,7 +70,7 @@
   height: 2rem;
   border-radius: 1rem;
   width: 90%;
-  background: rgb(150, 150, 150);
+  background: rgb(170, 170, 170);
   margin-bottom: 2rem;
   z-index: 2;
   overflow: hidden;

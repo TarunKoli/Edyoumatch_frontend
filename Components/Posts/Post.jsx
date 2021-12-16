@@ -411,7 +411,7 @@ const Posts = () => {
                         ? {
                             height: "100%",
                           }
-                        : { height: "30%", justifyContent: "flex-end" }
+                        : { height: "32%", justifyContent: "flex-end" }
                     }
                   >
                     <div className={styles.collegeName}>

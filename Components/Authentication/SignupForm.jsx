@@ -209,7 +209,10 @@ const Register = () => {
         />
         <label htmlFor="tnc">
           {" "}
-          &nbsp;I, accept all <a>Terms & Conditions</a>
+          &nbsp;I, accept all{" "}
+          <Link href="https://firebasestorage.googleapis.com/v0/b/edyoumatch-22576.appspot.com/o/Terms%20of%20Service.pdf?alt=media&token=84c4e82b-67f1-476f-bc1b-874dbe05b7ec">
+            <a>Terms & Conditions</a>
+          </Link>
         </label>
       </div>
       <button className={styles.signUpBtn} onClick={handleSignup}>
