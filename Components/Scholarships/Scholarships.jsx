@@ -11,8 +11,8 @@ const Scholarships = () => {
     <section className={styles.scholarships}>
       <div className={styles.scholarshipBody}>
         <div className={styles.wrap}>
+          <h3>Scholarships</h3>
           <div className={styles.boxWrapper}>
-            <h1>Scholarships</h1>
             <div className={styles.box1}>
               <div className={styles.card}>
                 <span>01</span>

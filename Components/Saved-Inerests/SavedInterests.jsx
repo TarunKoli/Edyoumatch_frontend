@@ -18,7 +18,6 @@ const SavedInterest = () => {
     );
     const data = await res.json();
     if (res.status === 200) {
-      console.log(data.posts);
       setPosts(data.posts);
     }
   }, []);
@@ -40,12 +39,14 @@ const SavedInterest = () => {
   return (
     <section className={styles.saved}>
       <div className={styles.test}>
-        <h1>Saved Interests</h1>
+        <h3>Saved Interests</h3>
         <div className={styles.postContainer}>
           {posts.map((college, p) => {
             return (
-              <div className={styles.postWrapper}>
-                <i className="far fa-times-circle"></i>
+              <div className={styles.postWrapper} key={p}>
+                <div className={styles.remove}>
+                  <i className="fas fa-times"></i>
+                </div>
                 <div
                   key={p}
                   className={`${styles.post} posts`}
@@ -98,7 +99,7 @@ const SavedInterest = () => {
                   <div
                     className={styles.details}
                     style={
-                      moreDetails
+                      moreDetails && postIndex === p
                         ? {
                             height: "100%",
                           }
@@ -114,7 +115,7 @@ const SavedInterest = () => {
                     <div
                       className={styles.courses}
                       style={
-                        moreDetails
+                        moreDetails && postIndex === p
                           ? { height: "auto", overflow: "visible" }
                           : { maxHeight: "100%", overflow: "hidden" }
                       }
@@ -127,7 +128,7 @@ const SavedInterest = () => {
                         );
                       })}
                     </div>
-                    {moreDetails ? (
+                    {moreDetails && postIndex === p ? (
                       <div>
                         <div className={styles.location}>
                           <i className="fas fa-map-marker-alt"></i>

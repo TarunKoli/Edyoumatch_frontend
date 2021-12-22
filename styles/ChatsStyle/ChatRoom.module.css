@@ -20,7 +20,7 @@
   flex-basis: 15%;
   margin-bottom: 1rem;
 }
-.search h1 {
+.chatRooms h3 {
   font-size: 3rem;
   color: var(--main-theme);
   margin-bottom: 2rem;
@@ -124,5 +124,25 @@
   }
   .chatRooms {
     border: none;
+    padding: 0;
+    border-radius: 0;
+  }
+  .chatRooms h3 {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--main-theme);
+    color: white;
+    font-weight: lighter;
+    font-size: 2.6rem;
+    padding: 2.5rem 0 2.5rem 6rem;
+    box-shadow: 0 0.5rem 1rem rgb(100, 100, 100);
+  }
+  .search > div {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .messages {
+    padding: 2rem;
   }
 }

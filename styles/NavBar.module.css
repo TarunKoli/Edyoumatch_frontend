@@ -98,6 +98,13 @@
   .nav[data-value="help"] {
     display: block;
   }
+  .nav[data-value="loans"] .mobileNav,
+  .nav[data-value="scholarships"] .mobileNav,
+  .nav[data-value="saved"] .mobileNav,
+  .nav[data-value="chats"] .mobileNav,
+  .nav[data-value="admins"] .mobileNav {
+    top: 0.5%;
+  }
   .mobileNav {
     display: block;
     position: absolute;

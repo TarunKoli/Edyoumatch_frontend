@@ -34,10 +34,6 @@ const CreatePost = () => {
   const [disable, setDisable] = useState(true);
   const [loader, setLoader] = useState(false);
   var save = [];
-  // winter.start &&
-  // winter.end &&
-  // summer.start &&
-  // summer.end &&
 
   useEffect(async () => {
     setPath("admins");
@@ -711,6 +707,9 @@ const CreatePost = () => {
           }}
         >
           +
+        </div>
+        <div className={styles.adminPosts}>
+          <h3>Admin Section</h3>
         </div>
       </div>
     </div>

@@ -8,8 +8,8 @@ const ChatRooms = () => {
   return (
     <div className={styles.box2}>
       <div className={styles.chatRooms}>
+        <h3>Chats</h3>
         <div className={styles.search}>
-          <h1>Chats</h1>
           <div>
             <input type="text" name="Search" placeholder="Search...." />
             <i className="fas fa-search"></i>

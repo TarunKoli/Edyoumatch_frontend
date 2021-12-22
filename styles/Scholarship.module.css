@@ -17,7 +17,7 @@
 .wrap::-webkit-scrollbar {
   display: none;
 }
-.boxWrapper h1 {
+.wrap h3 {
   font-size: 3rem;
   color: rgb(0, 0, 95);
   margin: 0 0 2rem;
@@ -83,7 +83,21 @@
 @media (max-width: 770px) {
   .wrap {
     flex-basis: 100%;
-    padding: 2rem;
+    padding: 0;
+  }
+  .wrap h3 {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: var(--main-theme);
+    color: white;
+    font-weight: lighter;
+    font-size: 2.6rem;
+    padding: 2.5rem 0 2.5rem 6rem;
+    box-shadow: 0 0.5rem 1rem rgb(100, 100, 100);
+  }
+  .boxWrapper {
+    padding: 1rem 2rem;
   }
   .card {
     width: 100%;
