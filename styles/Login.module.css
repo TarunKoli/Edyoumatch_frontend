@@ -124,13 +124,7 @@
     display: none;
   }
   .heading {
-    writing-mode: horizontal-tb;
-    left: 3%;
-    top: 3%;
-    transform: rotateZ(0) translateY(0);
-    font-size: 3.2rem;
-    font-weight: 800;
-    z-index: 10;
+    display: none;
   }
   .wrapper {
     position: relative;

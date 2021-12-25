@@ -154,7 +154,8 @@ const NavBar = (props) => {
       <div className={styles.wrapper}>
         <div className={styles.up}>
           <div className={styles.heading}>
-            <h1>Edyoumatch</h1>
+            {/* <h1>Edyoumatch</h1> */}
+            <img src="/edyoumatch_logo.png" alt="Edyoumatch_logo" />
           </div>
           <div className={styles.pages}>
             <Link href="/home">

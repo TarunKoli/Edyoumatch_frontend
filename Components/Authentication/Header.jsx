@@ -5,6 +5,7 @@ const Header = (props) => {
   return (
     <div className={styles.navbar}>
       <div>
+        <img src="/edyoumatch_logo.png" alt="Edyoumatch_Logo" />
         <Link href="/help">
           <li>Help</li>
         </Link>

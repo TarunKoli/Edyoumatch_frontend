@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   background: transparent;
+  padding: 1.5rem 0 0 0;
 }
 .navbar div {
   display: flex;
@@ -10,6 +11,9 @@
   align-items: center;
   justify-content: space-around;
   height: 9rem;
+}
+.navbar div img {
+  width: 14rem;
 }
 .navbar div:nth-child(1) {
   flex-basis: 70%;
@@ -67,6 +71,13 @@
     left: 0;
     top: 0;
     z-index: 10;
+    padding: 0;
+  }
+  .navbar div img {
+    position: absolute;
+    top: -1%;
+    left: 85%;
+    width: 15rem;
   }
   .navbar div:nth-child(2) {
     display: none;
