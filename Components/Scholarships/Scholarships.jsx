@@ -1,11 +1,17 @@
-import { useContext, useEffect } from "react";
+import router from "next/router";
+import { useContext, useEffect, useState } from "react";
 import styles from "../../styles/Scholarship.module.css";
 import { PathContext } from "../PagesContext";
 
 const Scholarships = () => {
   const [path, setPath] = useContext(PathContext);
-  useEffect(() => {
+  const [scholarships, setScholarships] = useState([]);
+  useEffect(async () => {
     setPath("scholarships");
+    const res = await fetch("http://localhost:8080/posts/getScholarships");
+    const data = await res.json();
+    console.log(data.scholarships);
+    setScholarships(data.scholarships);
   }, []);
   return (
     <section className={styles.scholarships}>
@@ -14,54 +20,30 @@ const Scholarships = () => {
           <h3>Scholarships</h3>
           <div className={styles.boxWrapper}>
             <div className={styles.box1}>
-              <div className={styles.card}>
-                <span>01</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>02</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>03</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>04</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>05</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>06</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>07</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>08</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>09</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>10</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>11</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
-              <div className={styles.card}>
-                <span>12</span>
-                <h1>Harverd University Scholarship</h1>
-              </div>
+              {scholarships.map((data, i) => {
+                return (
+                  <div
+                    className={styles.card}
+                    onClick={() => {
+                      router.push(data.link);
+                    }}
+                    key={i}
+                  >
+                    <span>{i + 1}</span>
+                    <h1
+                      style={
+                        data.name.length > 50
+                          ? data.name.length > 100
+                            ? { fontSize: "1.4rem" }
+                            : { fontSize: "1.6rem" }
+                          : { fontSize: "2rem" }
+                      }
+                    >
+                      {data.name}
+                    </h1>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
