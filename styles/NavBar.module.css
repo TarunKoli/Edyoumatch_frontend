@@ -36,19 +36,19 @@
   flex-direction: column;
   width: 100%;
 }
-/* .heading h1 {
+.heading h1 {
   font-size: 3.5rem;
   color: var(--main-theme);
   padding: 2rem;
   text-align: center;
-} */
+}
 .heading {
   display: flex;
   justify-content: center;
 }
-.heading img {
+/* .heading img {
   width: 14rem;
-}
+} */
 .pages {
   margin-top: 1rem;
 }

@@ -124,7 +124,9 @@
     display: none;
   }
   .heading {
-    display: none;
+    top: 8%;
+    left: 28%;
+    font-size: 3rem;
   }
   .wrapper {
     position: relative;
