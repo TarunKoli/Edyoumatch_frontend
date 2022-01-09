@@ -270,7 +270,7 @@ const CreatePost = () => {
     console.log(data);
     try {
       const res = await axios({
-        url: "http://localhost:8080/posts/createPost",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/createPost`,
         method: "POST",
         data: data,
         withCredentials: true,

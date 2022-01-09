@@ -39,7 +39,7 @@ const ManageAccount = () => {
         pass: pass,
       };
       const res = await axios({
-        url: "http://localhost:8080/users/deleteAccount",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/deleteAccount`,
         method: "DELETE",
         data: data,
         withCredentials: true,

@@ -8,7 +8,9 @@ const Scholarships = () => {
   const [loans, setLoans] = useState([]);
   useEffect(async () => {
     setPath("loans");
-    const res = await fetch("http://localhost:8080/posts/getLoans");
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/getLoans`
+    );
     const data = await res.json();
     setLoans(data.loans);
   }, []);

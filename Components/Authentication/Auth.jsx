@@ -14,7 +14,7 @@ const Login = (props) => {
   useEffect(() => {
     setPath("auth");
   }, []);
-
+  console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
   return (
     <section className={styles.login}>
       <h1 className={styles.heading}>Edyoumatch</h1>

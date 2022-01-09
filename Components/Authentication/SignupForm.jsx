@@ -63,7 +63,7 @@ const Register = () => {
       };
 
       const res = await axios({
-        url: "http://localhost:8080/auth/signUp",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signUp`,
         method: "POST",
         data: data,
         withCredentials: true,

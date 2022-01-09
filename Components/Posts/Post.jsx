@@ -29,7 +29,9 @@ const Posts = () => {
         setShimmer(true);
       }, 600);
       const res = await fetch(
-        `http://localhost:8080/posts/getPosts/${window.localStorage.getItem(
+        `${
+          process.env.NEXT_PUBLIC_BACKEND_URL
+        }/posts/getPosts/${window.localStorage.getItem(
           "interest"
         )}?page=${page}`
       );
@@ -82,7 +84,7 @@ const Posts = () => {
   const savePost = async (id) => {
     try {
       const res = await axios({
-        url: "http://localhost:8080/posts/savePost",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/savePost`,
         method: "POST",
         data: { data: id, token: cookies.get("jwt") },
         withCredentials: true,

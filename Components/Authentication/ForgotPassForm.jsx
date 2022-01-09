@@ -32,7 +32,7 @@ const ForgotPass = (props) => {
         email: email,
       };
       const res = await axios({
-        url: "http://localhost:8080/auth/forgotPass",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/forgotPass`,
         method: "POST",
         data: data,
         withCredentials: true,

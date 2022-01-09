@@ -8,7 +8,9 @@ const Scholarships = () => {
   const [scholarships, setScholarships] = useState([]);
   useEffect(async () => {
     setPath("scholarships");
-    const res = await fetch("http://localhost:8080/posts/getScholarships");
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/getScholarships`
+    );
     const data = await res.json();
     console.log(data.scholarships);
     setScholarships(data.scholarships);

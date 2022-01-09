@@ -14,7 +14,9 @@ const SavedInterest = () => {
     setPath("saved");
 
     const res = await fetch(
-      `http://localhost:8080/posts/getSavedPosts/${cookies.get("jwt").jwt}`
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/getSavedPosts/${
+        cookies.get("jwt").jwt
+      }`
     );
     const data = await res.json();
     if (res.status === 200) {

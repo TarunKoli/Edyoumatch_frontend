@@ -26,7 +26,9 @@ const AccountSettings = () => {
 
   useEffect(async () => {
     const res = await fetch(
-      `http://localhost:8080/users/getUser/${cookies.get("jwt").jwt}`
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/getUser/${
+        cookies.get("jwt").jwt
+      }`
     );
     const user = await res.json();
     setFirstname(user.data.name.split(" ")[0]);
@@ -127,7 +129,7 @@ const AccountSettings = () => {
   const send = async (imgUrl) => {
     try {
       const res = await axios({
-        url: "http://localhost:8080/users/updateUser",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/updateUser`,
         method: "PATCH",
         data: {
           token: cookies.get("jwt"),

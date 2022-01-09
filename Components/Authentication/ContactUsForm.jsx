@@ -49,7 +49,7 @@ const ContactForm = () => {
         query: query,
       };
       const res = await axios({
-        url: "http://localhost:8080/auth/contact-us",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/contact-us`,
         method: "POST",
         data: data,
         withCredentials: true,

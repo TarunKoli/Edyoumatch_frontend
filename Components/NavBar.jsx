@@ -26,7 +26,7 @@ const NavBar = (props) => {
         token: cookies.get("jwt"),
       };
       const res = await axios({
-        url: "http://localhost:8080/auth/is-user",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/is-user`,
         method: "POST",
         data: data,
         withCredentials: true,
@@ -101,7 +101,7 @@ const NavBar = (props) => {
 
       try {
         const res = await axios({
-          url: "http://localhost:8080/auth/logout",
+          url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/logout`,
           method: "POST",
           data: {
             token: cookies.get("jwt"),

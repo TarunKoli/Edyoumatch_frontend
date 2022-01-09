@@ -48,7 +48,7 @@ const ResetPass = (props) => {
       };
 
       const res = await axios({
-        url: `http://localhost:8080/auth/resetPass/${props.token}`,
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/resetPass/${props.token}`,
         method: "PATCH",
         data: data,
         withCredentials: true,

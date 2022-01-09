@@ -42,7 +42,7 @@ const Login = () => {
         pass: pass,
       };
       const res = await axios({
-        url: "http://localhost:8080/auth/login",
+        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`,
         method: "POST",
         data: data,
         withCredentials: true,
