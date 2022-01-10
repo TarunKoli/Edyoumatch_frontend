@@ -20,63 +20,66 @@ const NavBar = (props) => {
     setLoc(router.pathname);
   });
 
-  useEffect(async () => {
-    try {
-      const data = {
-        token: cookies.get("jwt"),
-      };
-      const res = await axios({
-        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/is-user`,
-        method: "POST",
-        data: data,
-        withCredentials: true,
-      });
-
-      if (res.data.isLoggedIn) {
-        setUserData(res.data.isLoggedIn);
-        setAdmin(res.data.admin);
-      }
-
-      if (
-        res.data.isLoggedIn === false &&
-        loc !== "/" &&
-        loc !== "/register" &&
-        loc !== "/forgot-password" &&
-        loc !== "/contact-us" &&
-        loc !== "/help" &&
-        router.pathname !== "/reset/[resetToken]"
-      ) {
-        router.replace("/");
-        toast.info("Please login to continue", {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = {
+          token: cookies.get("jwt"),
+        };
+        const res = await axios({
+          url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/is-user`,
+          method: "POST",
+          data: data,
+          withCredentials: true,
         });
-      } else if (
-        res.data.isLoggedIn === true &&
-        (router.pathname === "/register" ||
-          router.pathname === "/forgot-password" ||
-          router.pathname === "/")
-      ) {
-        toast.info("You are already logged in", {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        router.push("/home");
+
+        if (res.data.isLoggedIn) {
+          setUserData(res.data.isLoggedIn);
+          setAdmin(res.data.admin);
+        }
+
+        if (
+          res.data.isLoggedIn === false &&
+          loc !== "/" &&
+          loc !== "/register" &&
+          loc !== "/forgot-password" &&
+          loc !== "/contact-us" &&
+          loc !== "/help" &&
+          router.pathname !== "/reset/[resetToken]"
+        ) {
+          router.replace("/");
+          toast.info("Please login to continue", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else if (
+          res.data.isLoggedIn === true &&
+          (router.pathname === "/register" ||
+            router.pathname === "/forgot-password" ||
+            router.pathname === "/")
+        ) {
+          toast.info("You are already logged in", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          router.push("/home");
+        }
+      } catch (err) {
+        console.log(err);
+        setUserData(err.response.data.isLoggedin);
       }
-    } catch (err) {
-      console.log(err);
-      setUserData(err.response.data.isLoggedin);
     }
+    fetchData();
   }, [loc]);
 
   useEffect(() => {
@@ -158,7 +161,7 @@ const NavBar = (props) => {
             {/* <img src="/edyoumatch_logo.png" alt="Edyoumatch_logo" /> */}
           </div>
           <div className={styles.pages}>
-            <Link href="/home">
+            <Link href="/home" passHref>
               <a
                 className={
                   path === "home" ? `${styles.active}` : `${styles.link}`
@@ -190,7 +193,7 @@ const NavBar = (props) => {
               Explore
             </a>
 
-            <Link href="/saved-interests">
+            <Link href="/saved-interests" passHref>
               <a
                 className={
                   path === "saved" ? `${styles.active}` : `${styles.link}`
@@ -205,7 +208,7 @@ const NavBar = (props) => {
                 Saved Interests
               </a>
             </Link>
-            <Link href="/scholarships">
+            <Link href="/scholarships" passHref>
               <a
                 className={
                   path === "scholarships"
@@ -222,7 +225,7 @@ const NavBar = (props) => {
                 Scholarships
               </a>
             </Link>
-            <Link href="/edu-loans">
+            <Link href="/edu-loans" passHref>
               <a
                 className={
                   path === "loans" ? `${styles.active}` : `${styles.link}`
@@ -237,7 +240,7 @@ const NavBar = (props) => {
                 Edu-Loans
               </a>
             </Link>
-            <Link href="/chats">
+            <Link href="/chats" passHref>
               <a
                 className={
                   path === "chats" ? `${styles.active}` : `${styles.link}`
@@ -252,7 +255,7 @@ const NavBar = (props) => {
                 Chats
               </a>
             </Link>
-            <Link href="/help">
+            <Link href="/help" passHref>
               <a
                 className={
                   path === "help" ? `${styles.active}` : `${styles.link}`
@@ -267,7 +270,7 @@ const NavBar = (props) => {
                 Help
               </a>
             </Link>
-            <Link href="/contact-us">
+            <Link href="/contact-us" passHref>
               <a
                 className={
                   path === "contact" ? `${styles.active}` : `${styles.link}`
@@ -282,7 +285,7 @@ const NavBar = (props) => {
                 Contact Us
               </a>
             </Link>
-            <Link href="/profile">
+            <Link href="/profile" passHref>
               <a
                 className={
                   path === "settings" ? `${styles.active}` : `${styles.link}`
@@ -297,7 +300,7 @@ const NavBar = (props) => {
                 Settings
               </a>
             </Link>
-            <Link href="/admins">
+            <Link href="/admins" passHref>
               <a
                 className={
                   path === "admins" ? `${styles.active}` : `${styles.link}`

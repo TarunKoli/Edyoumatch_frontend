@@ -4,12 +4,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <script
-            src="https://kit.fontawesome.com/e7a0c04ff2.js"
-            crossOrigin="anonymous"
-          ></script>
-        </Head>
+        <Head></Head>
         <body>
           <Main />
           <NextScript />

@@ -78,7 +78,7 @@ const ContactForm = () => {
   return (
     <div className={styles.form} data-value="contact">
       <div>
-        <h1>Let's connect</h1>
+        <h1>Let&apos;s connect</h1>
         <div className={styles.person}>
           <input
             type="text"

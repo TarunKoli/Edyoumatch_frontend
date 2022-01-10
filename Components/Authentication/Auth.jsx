@@ -13,8 +13,9 @@ const Login = (props) => {
   const [path, setPath] = useContext(PathContext);
   useEffect(() => {
     setPath("auth");
+    //eslint-disable-next-line
   }, []);
-  console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
+
   return (
     <section className={styles.login}>
       <h1 className={styles.heading}>Edyoumatch</h1>
@@ -29,11 +30,11 @@ const Login = (props) => {
           <p>
             {props.subLine}{" "}
             {props.mode === "login" ? (
-              <Link href="/register">
+              <Link href="/register" passHref>
                 <a>{props.link}</a>
               </Link>
             ) : (
-              <Link href="/">
+              <Link href="/" passHref>
                 <a>{props.link}</a>
               </Link>
             )}

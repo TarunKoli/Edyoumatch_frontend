@@ -90,7 +90,7 @@ const ForgotPass = (props) => {
         <p>
           Forgot Password? No worries
           <br />
-          we've got it covered
+          we&apos;ve got it covered
         </p>
       </div>
     </div>

@@ -6,14 +6,19 @@ import { PathContext } from "../PagesContext";
 const Scholarships = () => {
   const [path, setPath] = useContext(PathContext);
   const [loans, setLoans] = useState([]);
-  useEffect(async () => {
-    setPath("loans");
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/getLoans`
-    );
-    const data = await res.json();
-    setLoans(data.loans);
+  useEffect(() => {
+    async function fetchData() {
+      setPath("loans");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/getLoans`
+      );
+      const data = await res.json();
+      setLoans(data.loans);
+    }
+    fetchData();
+    //eslint-disable-next-line
   }, []);
+
   return (
     <section className={styles.loans}>
       <div className={styles.loansBody}>

@@ -7,6 +7,7 @@ const Help = () => {
   const [path, setPath] = useContext(PathContext);
   useEffect(() => {
     setPath("help");
+    //eslint-disable-next-line
   }, []);
   return (
     <section className={styles.help}>
@@ -45,10 +46,10 @@ const Help = () => {
         </div>
         <div className={styles.rightImg}>
           <div className={styles.links}>
-            <Link href="/home">
+            <Link href="/home" passHref>
               <a>Home</a>
             </Link>
-            <Link href="contact-us">
+            <Link href="contact-us" passHref>
               <a>Contact us</a>
             </Link>
           </div>

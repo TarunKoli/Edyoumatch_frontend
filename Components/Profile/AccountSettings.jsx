@@ -24,20 +24,23 @@ const AccountSettings = () => {
   const [oldImage, setOldImage] = useState("");
   const [error, setError] = useState(null);
 
-  useEffect(async () => {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/getUser/${
-        cookies.get("jwt").jwt
-      }`
-    );
-    const user = await res.json();
-    setFirstname(user.data.name.split(" ")[0]);
-    setLastname(user.data.name.split(" ")[1]);
-    setEmail(user.data.email);
-    setDegrees(user.data.degrees);
-    setBios(user.data.bio);
-    setProfileImg(user.data.profileImg);
-    setOldImage(user.data.profileImg);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/getUser/${
+          cookies.get("jwt").jwt
+        }`
+      );
+      const user = await res.json();
+      setFirstname(user.data.name.split(" ")[0]);
+      setLastname(user.data.name.split(" ")[1]);
+      setEmail(user.data.email);
+      setDegrees(user.data.degrees);
+      setBios(user.data.bio);
+      setProfileImg(user.data.profileImg);
+      setOldImage(user.data.profileImg);
+    }
+    fetchData();
   }, []);
 
   useEffect(() => {

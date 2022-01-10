@@ -210,7 +210,10 @@ const Register = () => {
         <label htmlFor="tnc">
           {" "}
           &nbsp;I, accept all{" "}
-          <Link href="https://firebasestorage.googleapis.com/v0/b/edyoumatch-22576.appspot.com/o/Terms%20of%20Service.pdf?alt=media&token=84c4e82b-67f1-476f-bc1b-874dbe05b7ec">
+          <Link
+            href="https://firebasestorage.googleapis.com/v0/b/edyoumatch-22576.appspot.com/o/Terms%20of%20Service.pdf?alt=media&token=84c4e82b-67f1-476f-bc1b-874dbe05b7ec"
+            passHref
+          >
             <a>Terms & Conditions</a>
           </Link>
         </label>
@@ -238,7 +241,7 @@ const Register = () => {
         <p>
           Already have an account ?
           <br />
-          <Link href="/">
+          <Link href="/" passHref>
             <a>Login here</a>
           </Link>
         </p>

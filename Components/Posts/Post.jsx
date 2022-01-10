@@ -23,44 +23,48 @@ const Posts = () => {
   const [error, setError] = useState(null);
   const [empty, setEmpty] = useState(false);
 
-  useEffect(async () => {
-    if (slideIndex === 0) {
-      setTimeout(() => {
-        setShimmer(true);
-      }, 600);
-      const res = await fetch(
-        `${
-          process.env.NEXT_PUBLIC_BACKEND_URL
-        }/posts/getPosts/${window.localStorage.getItem(
-          "interest"
-        )}?page=${page}`
-      );
-
-      const info = await res.json();
-
-      if (info.data.length === 0) {
+  useEffect(() => {
+    async function fetchData() {
+      if (slideIndex === 0) {
         setTimeout(() => {
-          setEmpty(true);
-        }, 2000);
+          setShimmer(true);
+        }, 600);
+        const res = await fetch(
+          `${
+            process.env.NEXT_PUBLIC_BACKEND_URL
+          }/posts/getPosts/${window.localStorage.getItem(
+            "interest"
+          )}?page=${page}`
+        );
+
+        const info = await res.json();
+
+        if (info.data.length === 0) {
+          setTimeout(() => {
+            setEmpty(true);
+          }, 2000);
+        }
+
+        setPage(page + 1);
+        setSlide(info.data);
+
+        if (data.length) {
+          setData([...data, ...info.data]);
+          setTimeout(() => {
+            setShimmer(false);
+          }, 2000);
+        } else {
+          setData(info.data);
+          setTimeout(() => {
+            setShimmer(false);
+          }, 2000);
+        }
+
+        setSlideIndex(info.data.length);
       }
-
-      setPage(page + 1);
-      setSlide(info.data);
-
-      if (data.length) {
-        setData([...data, ...info.data]);
-        setTimeout(() => {
-          setShimmer(false);
-        }, 2000);
-      } else {
-        setData(info.data);
-        setTimeout(() => {
-          setShimmer(false);
-        }, 2000);
-      }
-
-      setSlideIndex(info.data.length);
     }
+    fetchData();
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, [slideIndex]);
 
   useEffect(() => {
@@ -79,6 +83,7 @@ const Posts = () => {
   }, [error]);
   useEffect(() => {
     setPath("posts");
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, []);
 
   const savePost = async (id) => {
@@ -323,9 +328,9 @@ const Posts = () => {
               style={empty ? { display: "flex" } : { display: "none" }}
             >
               <h1>
-                That's all we have <br /> for now.
+                That&apos;s all we have <br /> for now.
               </h1>
-              <img src="/Thank_you.svg" />
+              <img src="/Thank_you.svg" alt="" />
             </div>
             {data.map((college, i) => {
               return (
@@ -402,6 +407,7 @@ const Posts = () => {
                               : { display: "none" }
                           }
                           draggable="true"
+                          alt=""
                         />
                       );
                     })}
@@ -429,7 +435,12 @@ const Posts = () => {
                     >
                       {college.courses.map((val, i) => {
                         return (
-                          <a key={i} href={val.link} target="_blank">
+                          <a
+                            key={i}
+                            href={val.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             {val.name}
                           </a>
                         );
@@ -456,7 +467,12 @@ const Posts = () => {
                             Scholarships -{" "}
                             {college.scholarships.map((val, i) => {
                               return (
-                                <a href={val.link} target="_blank" key={i}>
+                                <a
+                                  href={val.link}
+                                  target="_blank"
+                                  key={i}
+                                  rel="noopener noreferrer"
+                                >
                                   {val.name + ", "}
                                 </a>
                               );

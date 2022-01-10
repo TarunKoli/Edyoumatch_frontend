@@ -35,13 +35,17 @@ const CreatePost = () => {
   const [loader, setLoader] = useState(false);
   var save = [];
 
-  useEffect(async () => {
-    setPath("admins");
-    const data = await fetch(
-      `https://countriesnow.space/api/v0.1/countries/flag/images`
-    );
-    const list = await data.json();
-    setWorld(list.data);
+  useEffect(() => {
+    async function fetchData() {
+      setPath("admins");
+      const data = await fetch(
+        `https://countriesnow.space/api/v0.1/countries/flag/images`
+      );
+      const list = await data.json();
+      setWorld(list.data);
+    }
+    fetchData();
+    //eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -355,7 +359,7 @@ const CreatePost = () => {
                               setCountries([]);
                             }}
                           >
-                            <img src={val.flag} />
+                            <img src={val.flag} alt="" />
                             <p>{val.name}</p>
                           </div>
                         );
@@ -376,7 +380,11 @@ const CreatePost = () => {
                                 removeCourse(val.name);
                               }}
                             ></i>
-                            <a href={val.link} target="_blank">
+                            <a
+                              href={val.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               {val.name}
                             </a>
                           </div>
@@ -431,7 +439,11 @@ const CreatePost = () => {
                                 removeScholarship(val.name);
                               }}
                             ></i>
-                            <a href={val.link} target="_blank">
+                            <a
+                              href={val.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               {val.name}
                             </a>
                           </div>

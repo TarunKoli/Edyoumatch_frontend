@@ -8,6 +8,7 @@ const Profile = () => {
   const [path, setPath] = useContext(PathContext);
   useEffect(() => {
     setPath("settings");
+    //eslint-disable-next-line
   }, []);
   return (
     <section className={styles.profile}>

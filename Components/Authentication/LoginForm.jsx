@@ -105,7 +105,7 @@ const Login = () => {
             <i className="far fa-eye"></i>
           )}
         </span>
-        <Link href="/forgot-password">
+        <Link href="/forgot-password" passHref>
           <a>Forgot password ?</a>
         </Link>
       </div>
@@ -130,10 +130,10 @@ const Login = () => {
       </div>
       <div className={styles.mobile}>
         <p>
-          If you don't have an account
+          If you don&apos;t have an account
           <br />
           You can{" "}
-          <Link href="/register">
+          <Link href="/register" passHref>
             <a>register here</a>
           </Link>
         </p>

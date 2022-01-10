@@ -8,6 +8,7 @@ const Chats = () => {
   const [path, setPath] = useContext(PathContext);
   useEffect(() => {
     setPath("chats");
+    //eslint-disable-next-line
   }, []);
   return (
     <section className={styles.chats}>

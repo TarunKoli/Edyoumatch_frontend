@@ -91,13 +91,13 @@ const ManageAccount = () => {
               <br />
               <br />
               To learn more about account deletion, please visit the{" "}
-              <Link href="/help">
+              <Link href="/help" passHref>
                 <a>Help center</a>
               </Link>
               <br />
               <br />
               If you still like your account deleted, confirm your password and
-              click "Delete My Account".
+              click &quot;Delete My Account&quot;.
             </article>
             <br />
             <div className={styles.confirm}>
@@ -156,8 +156,8 @@ const ManageAccount = () => {
           <div>
             <h3>Change password</h3>
             <p>
-              It's a good idea to use a strong password that you don't use
-              elsewhere
+              It&apos;s a good idea to use a strong password that you don&apos;t
+              use elsewhere
             </p>
           </div>
         </div>

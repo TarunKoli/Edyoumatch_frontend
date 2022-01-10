@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useContext } from "react";
+import Script from "next/script";
 import Auth from "../Components/Authentication/Auth";
 
 export default function ContactUsPage() {
@@ -12,7 +12,10 @@ export default function ContactUsPage() {
           content="EduYouMatch is an online platform to land into ur dream insitution."
         />
       </Head>
-
+      <Script
+        src="https://kit.fontawesome.com/e7a0c04ff2.js"
+        crossOrigin="anonymous"
+      ></Script>
       <Auth
         mode={"contact"}
         line1={"Queries ?"}

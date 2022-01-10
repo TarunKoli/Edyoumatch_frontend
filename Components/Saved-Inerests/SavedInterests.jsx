@@ -10,18 +10,22 @@ const SavedInterest = () => {
   let [postIndex, setPostIndex] = useState(0);
   const [posts, setPosts] = useState([]);
 
-  useEffect(async () => {
-    setPath("saved");
+  useEffect(() => {
+    async function fetchData() {
+      setPath("saved");
 
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/getSavedPosts/${
-        cookies.get("jwt").jwt
-      }`
-    );
-    const data = await res.json();
-    if (res.status === 200) {
-      setPosts(data.posts);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/getSavedPosts/${
+          cookies.get("jwt").jwt
+        }`
+      );
+      const data = await res.json();
+      if (res.status === 200) {
+        setPosts(data.posts);
+      }
     }
+    fetchData();
+    //eslint-disable-next-line
   }, []);
 
   function minusSlide() {
@@ -94,6 +98,7 @@ const SavedInterest = () => {
                               : { display: "block" }
                           }
                           draggable="true"
+                          alt=""
                         />
                       );
                     })}
@@ -124,7 +129,12 @@ const SavedInterest = () => {
                     >
                       {college.courses.map((val, i) => {
                         return (
-                          <a key={i} href={val.link} target="_blank">
+                          <a
+                            key={i}
+                            href={val.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             {val.name}
                           </a>
                         );
@@ -151,7 +161,12 @@ const SavedInterest = () => {
                             Scholarships -{" "}
                             {college.scholarships.map((val, i) => {
                               return (
-                                <a href={val.link} target="_blank" key={i}>
+                                <a
+                                  href={val.link}
+                                  target="_blank"
+                                  key={i}
+                                  rel="noopener noreferrer"
+                                >
                                   {val.name + ", "}
                                 </a>
                               );
