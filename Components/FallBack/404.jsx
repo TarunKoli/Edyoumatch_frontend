@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import Router from "next/router";
 import { PathContext } from "../PagesContext";
 import styles from "../../styles/Fallback.module.css";
-const fallback404 = () => {
+const Fallback404 = () => {
   const [path, setPath] = useContext(PathContext);
   useEffect(() => {
     setPath("auth");
@@ -26,4 +26,4 @@ const fallback404 = () => {
   );
 };
 
-export default fallback404;
+export default Fallback404;

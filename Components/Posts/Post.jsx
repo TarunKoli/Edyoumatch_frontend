@@ -64,7 +64,7 @@ const Posts = () => {
       }
     }
     fetchData();
-    // eslint-disable-line react-hooks/exhaustive-deps
+    //eslint-disable-next-line
   }, [slideIndex]);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const Posts = () => {
   }, [error]);
   useEffect(() => {
     setPath("posts");
-    // eslint-disable-line react-hooks/exhaustive-deps
+    //eslint-disable-next-line
   }, []);
 
   const savePost = async (id) => {
