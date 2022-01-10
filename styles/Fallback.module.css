@@ -1,0 +1,31 @@
+.error {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid red;
+}
+.error div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error h1 {
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 10rem;
+}
+.error button {
+  height: 6rem;
+  width: 35rem;
+  border: none;
+  border-radius: 1rem;
+  background: var(--main-theme);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: -2rem 2rem 2rem var(--main-light);
+  position: relative;
+}

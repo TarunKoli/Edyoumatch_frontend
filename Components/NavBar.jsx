@@ -45,7 +45,8 @@ const NavBar = (props) => {
           loc !== "/forgot-password" &&
           loc !== "/contact-us" &&
           loc !== "/help" &&
-          router.pathname !== "/reset/[resetToken]"
+          router.pathname !== "/reset/[resetToken]" &&
+          router.pathname !== "/verification/[signupToken]"
         ) {
           router.replace("/");
           toast.info("Please login to continue", {

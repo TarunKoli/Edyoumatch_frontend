@@ -5,6 +5,7 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./SignupForm";
 import ForgotForm from "./ForgotPassForm";
 import ResetForm from "./ResetPassForm";
+import Verification from "./Verification";
 import ContactForm from "./ContactUsForm";
 import styles from "../../styles/Login.module.css";
 import { PathContext } from "../PagesContext";
@@ -53,6 +54,11 @@ const Login = (props) => {
         )}
         {props.mode === "reset" ? (
           <ResetForm mode={props.mode} token={props.token} />
+        ) : (
+          <div></div>
+        )}
+        {props.mode === "verify" ? (
+          <Verification mode={props.mode} token={props.token} />
         ) : (
           <div></div>
         )}

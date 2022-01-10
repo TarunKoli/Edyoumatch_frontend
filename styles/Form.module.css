@@ -275,6 +275,9 @@
     width: 100%;
     justify-content: center;
   }
+  .form[data-value="verify"] {
+    height: 100vh;
+  }
   .form[data-value="contact"] {
     flex-basis: 65%;
     align-items: center;
@@ -344,6 +347,11 @@
     display: block;
     text-align: center;
     font-size: 1.8rem;
+  }
+  .form[data-value="verify"] .mobile h1 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    color: var(--main-theme);
   }
   .mobile a,
   .mobileSignUp a {
