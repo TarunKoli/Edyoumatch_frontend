@@ -102,7 +102,7 @@
     width: 40%;
     transition: 0.5s;
   }
-  .nav[data-value="help"] {
+  .nav[data-value="help"][value="true"] {
     display: block;
   }
   .nav[data-value="loans"] .mobileNav,

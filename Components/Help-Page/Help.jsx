@@ -28,7 +28,9 @@ const Help = () => {
               />
               <button>Search</button>
             </div>
-            <h1>Edyoumatch</h1>
+            <Link href={"/home"} passHref>
+              <h1>Edyoumatch</h1>
+            </Link>
             <h2>See our most frequently asked question....</h2>
           </div>
           <div className={styles.mobile}>

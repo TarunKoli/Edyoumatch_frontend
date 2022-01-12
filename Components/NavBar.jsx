@@ -142,6 +142,7 @@ const NavBar = (props) => {
     <section
       className={nav ? `${styles.nav} ${styles.navActive}` : `${styles.nav}`}
       data-value={path}
+      value={userData}
     >
       <div
         className={
