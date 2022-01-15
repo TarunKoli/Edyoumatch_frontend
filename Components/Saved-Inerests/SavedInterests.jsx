@@ -59,9 +59,14 @@ const SavedInterest = () => {
     });
 
     if (res.status === 202) {
+      setPosts((prev) => {
+        return prev.filter((posts) => {
+          return posts._id !== id;
+        });
+      });
       toast.success(res.data.msg, {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

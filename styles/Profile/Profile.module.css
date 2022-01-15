@@ -154,6 +154,14 @@
 }
 .name {
   width: 100%;
+  position: relative;
+}
+.name span {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translate(-50%);
+  font-size: 1.8rem;
 }
 .inputs {
   display: flex;
@@ -162,7 +170,8 @@
   width: 50%;
   font-size: 1.6rem;
 }
-.inputs[data-value="Email"] {
+.inputs[data-value="Email"],
+.inputs[data-value="username"] {
   width: 100%;
 }
 .inputs input {
@@ -281,6 +290,10 @@
   padding: 1rem 3rem;
   border-radius: 2rem;
   cursor: pointer;
+}
+.sixthBox {
+  margin-top: 2rem;
+  padding: 0 2rem 0 0;
 }
 .mobile button,
 .heading button {

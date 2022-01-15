@@ -78,8 +78,9 @@ const Login = () => {
     <div className={styles.form}>
       <input
         type="email"
-        name="Email"
-        placeholder="Enter email"
+        name="Email or Username"
+        spellCheck="false"
+        placeholder="Enter email or username"
         value={email}
         onChange={(e) => {
           setEmail(e.target.value);
@@ -89,11 +90,13 @@ const Login = () => {
         <input
           type={hide ? "password" : "text"}
           name="Pass"
+          spellCheck="false"
           placeholder="Password"
           value={pass}
           onChange={(e) => {
             setPass(e.target.value);
           }}
+          data-value="pass"
         ></input>
         <span
           onClick={() => {

@@ -83,6 +83,7 @@ const ContactForm = () => {
           <input
             type="text"
             name="Name"
+            spellCheck="false"
             placeholder="Name"
             value={name}
             onChange={(e) => {
@@ -92,6 +93,7 @@ const ContactForm = () => {
           <input
             type="email"
             name="Email"
+            spellCheck="false"
             placeholder="Email"
             value={email}
             onChange={(e) => {
@@ -102,6 +104,7 @@ const ContactForm = () => {
         <input
           type="text"
           name="Subject"
+          spellCheck="false"
           placeholder="Subject"
           className={styles.subject}
           data-value="contact"
@@ -112,6 +115,7 @@ const ContactForm = () => {
         />
         <textarea
           name="query"
+          spellCheck="false"
           placeholder=" Your Query....."
           value={query}
           onChange={(e) => {

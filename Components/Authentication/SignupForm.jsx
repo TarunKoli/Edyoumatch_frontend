@@ -9,10 +9,11 @@ import axios from "axios";
 const Register = () => {
   const [hide, setHide] = useState(true);
   const [name, setName] = useState();
+  const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
-  const [confirm, setConfirm] = useState();
   const [gender, setGender] = useState();
+  const [check, setCheck] = useState();
   const [terms, setTerms] = useState(false);
   const [error, setError] = useState(null);
   const router = useRouter();
@@ -32,9 +33,24 @@ const Register = () => {
     }
   }, [error]);
 
+  const checkAvailability = async (username) => {
+    if (username) {
+      const doExists = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/check-availability/${username}`
+      );
+      const { status } = await doExists.json();
+      setCheck(status);
+    } else {
+      setCheck(false);
+    }
+  };
+
   const handleSignup = async () => {
     if (!name) {
       return setError("Please enter your name");
+    }
+    if (!username) {
+      return setError("Please enter a available username");
     }
     if (!email) {
       return setError("Please provide your email");
@@ -42,17 +58,11 @@ const Register = () => {
     if (!pass) {
       return setError("Please enter a password");
     }
-    if (!confirm) {
-      return setError("Please confirm your password");
-    }
-    if (pass !== confirm) {
-      return setError("Password does not match");
-    }
     if (!gender) {
       return setError("Select your gender");
     }
     if (!terms) {
-      return setError("PLease accept our terms and conditions");
+      return setError("Please accept our terms and conditions");
     }
     try {
       const data = {
@@ -60,6 +70,7 @@ const Register = () => {
         email: email,
         pass: pass,
         gender: gender,
+        username: username,
       };
 
       const res = await axios({
@@ -73,8 +84,8 @@ const Register = () => {
         setName("");
         setEmail("");
         setPass("");
-        setConfirm("");
         setGender("");
+        setUsername("");
         setTerms(false);
         toast.success(res.data.msg, {
           position: "top-center",
@@ -106,10 +117,32 @@ const Register = () => {
           setName(e.target.value);
         }}
       />
+      <div className={styles.pass}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          spellCheck="false"
+          value={username ? username : ""}
+          onChange={(e) => {
+            checkAvailability(e.target.value);
+            setUsername(e.target.value);
+          }}
+          data-value="pass"
+        />
+        <span>
+          {check ? (
+            <i className="far fa-check-circle" style={{ color: "green" }}></i>
+          ) : (
+            <i></i>
+          )}
+        </span>
+      </div>
       <input
         type="email"
         name="Email"
         placeholder="Enter email"
+        spellCheck="false"
         value={email ? email : ""}
         onChange={(e) => {
           setEmail(e.target.value);
@@ -120,10 +153,12 @@ const Register = () => {
           type={hide ? "password" : "text"}
           name="Pass"
           placeholder="Password"
+          spellCheck="false"
           value={pass ? pass : ""}
           onChange={(e) => {
             setPass(e.target.value);
           }}
+          data-value="pass"
         ></input>
         <span
           onClick={() => {
@@ -137,28 +172,7 @@ const Register = () => {
           )}
         </span>
       </div>
-      <div className={styles.pass}>
-        <input
-          type={hide ? "password" : "text"}
-          name="Confirm"
-          placeholder="Confirm Password"
-          value={confirm ? confirm : ""}
-          onChange={(e) => {
-            setConfirm(e.target.value);
-          }}
-        ></input>
-        <span
-          onClick={() => {
-            setHide((prev) => !prev);
-          }}
-        >
-          {hide ? (
-            <i className="fas fa-eye-slash"></i>
-          ) : (
-            <i className="far fa-eye"></i>
-          )}
-        </span>
-      </div>
+
       <div className={styles.radios}>
         <div className={styles.rBtns}>
           <input

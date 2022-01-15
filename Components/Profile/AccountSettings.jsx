@@ -12,6 +12,8 @@ const AccountSettings = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [check, setCheck] = useState(true);
   const [readonly, setReadonly] = useState(true);
   const [deg, setDeg] = useState(false);
   const [bio, setBio] = useState(false);
@@ -23,6 +25,7 @@ const AccountSettings = () => {
   const [image, setImage] = useState([]);
   const [oldImage, setOldImage] = useState("");
   const [error, setError] = useState(null);
+  const [reserved, setReserved] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -32,6 +35,8 @@ const AccountSettings = () => {
         }`
       );
       const user = await res.json();
+      setUsername(user.data.username);
+      setReserved(user.data.username);
       setFirstname(user.data.name.split(" ")[0]);
       setLastname(user.data.name.split(" ")[1]);
       setEmail(user.data.email);
@@ -57,6 +62,22 @@ const AccountSettings = () => {
       setError(null);
     }
   }, [error]);
+
+  const checkAvailability = async (username) => {
+    if (username === reserved) {
+      setCheck(true);
+      return;
+    }
+    if (username) {
+      const doExists = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/check-availability/${username}`
+      );
+      const { status } = await doExists.json();
+      setCheck(status);
+    } else {
+      setCheck(false);
+    }
+  };
 
   const appendDegree = () => {
     if (education) {
@@ -141,6 +162,7 @@ const AccountSettings = () => {
           degrees: degrees,
           bios: bios,
           profileImg: imgUrl,
+          username: username,
         },
       });
       if (res.status === 200) {
@@ -226,6 +248,40 @@ const AccountSettings = () => {
               />
             </div>
           </div>
+          <div className={styles.name}>
+            <div className={styles.inputs} data-value="username">
+              <label htmlFor="Username">Username</label>
+              <input
+                type="text"
+                name="Username"
+                value={username}
+                spellCheck="false"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                  checkAvailability(e.target.value);
+                }}
+                onFocus={() => {
+                  setReadonly(false);
+                }}
+                onMouseLeave={() => {
+                  setReadonly(true);
+                }}
+                readOnly={readonly}
+              />
+            </div>
+            <span>
+              {check ? (
+                <i
+                  className="fas fa-check-circle"
+                  style={{ color: "green" }}
+                ></i>
+              ) : (
+                <i></i>
+              )}
+            </span>
+          </div>
+        </div>
+        <div className={styles.sixthBox}>
           <div className={styles.name}>
             <div className={styles.inputs}>
               <label htmlFor="FirstName">Firstname</label>

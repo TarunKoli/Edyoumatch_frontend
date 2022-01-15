@@ -60,6 +60,7 @@ const ForgotPass = (props) => {
       <input
         type="email"
         name="Email"
+        spellCheck="false"
         placeholder="Enter email"
         value={email}
         onChange={(e) => {

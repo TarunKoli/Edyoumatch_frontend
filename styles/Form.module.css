@@ -28,17 +28,20 @@
   height: 6rem;
   width: 35rem;
   border-radius: 1rem;
-  padding-left: 2rem;
+  padding: 0 1rem 0 2rem;
   font-size: 1.6rem;
   color: var(--main-theme);
   font-weight: bold;
-  padding-right: 15%;
 }
 .form input {
   margin: 2rem 0;
 }
 .signUpForm input {
   margin: 1rem 0;
+}
+.form input[data-value="pass"],
+.signUpForm input[data-value="pass"] {
+  padding-right: 15%;
 }
 .form input::placeholder,
 .signUpForm input::placeholder {
@@ -92,10 +95,10 @@
 }
 .pass a {
   position: absolute;
+  color: var(--main-theme);
+  font-size: 1.4rem;
   right: 2%;
   bottom: 0;
-  font-size: 1.4rem;
-  color: var(--main-theme);
   cursor: pointer;
 }
 .pass span {

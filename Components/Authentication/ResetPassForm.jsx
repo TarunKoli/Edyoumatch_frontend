@@ -82,6 +82,7 @@ const ResetPass = (props) => {
         type="email"
         name="Email"
         placeholder="Enter email"
+        spellCheck="false"
         value={email}
         onChange={(e) => {
           setEmail(e.target.value);
@@ -92,10 +93,12 @@ const ResetPass = (props) => {
           type={hide ? "password" : "text"}
           name="Pass"
           placeholder="New password"
+          spellCheck="false"
           value={pass}
           onChange={(e) => {
             setPass(e.target.value);
           }}
+          data-value="pass"
         ></input>
         <span
           onClick={() => {
@@ -113,11 +116,13 @@ const ResetPass = (props) => {
         <input
           type={hide ? "password" : "text"}
           name="Confirm Pass"
+          spellCheck="false"
           placeholder="Confirm password"
           value={confirm}
           onChange={(e) => {
             setConfirm(e.target.value);
           }}
+          data-value="pass"
         ></input>
         <span
           onClick={() => {
