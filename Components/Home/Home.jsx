@@ -5,18 +5,22 @@ import AllSections from "./AllSections";
 import ViewAll from "./ViewAll";
 import { ViewContext, PathContext } from "../PagesContext";
 import Interests from "../Admin/Interest.json";
+import { ProfileContext } from "../PagesContext";
 
 const Home = () => {
   const router = useRouter();
+  const [profile, setProfile] = useContext(ProfileContext);
   const [status, setStatus] = useState("All");
   const [drop, setDrop] = useState(false);
   const [view, setView] = useContext(ViewContext);
   const [path, setPath] = useContext(PathContext);
   const [interest, setInterest] = useState("");
   const [suggest, setSuggest] = useState([]);
+  const [name, setName] = useState("");
 
   useEffect(() => {
     setPath("home");
+    setName(window.localStorage.getItem("username"));
     //eslint-disable-next-line
   }, []);
 
@@ -42,7 +46,15 @@ const Home = () => {
           <div className={styles.greet}>
             <div>
               <h1 className={styles.mobileHead}>Edyoumatch</h1>
-              <h1 className={styles.owner}>Hello, Tarun Koli</h1>
+              <h1
+                className={styles.owner}
+                onClick={() => {
+                  setProfile(true);
+                  router.push("/profile");
+                }}
+              >
+                Hello, {name}
+              </h1>
             </div>
             <div className={styles.search}>
               <input

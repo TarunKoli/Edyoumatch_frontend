@@ -26,20 +26,15 @@
   width: 100%;
   display: flex;
   align-items: flex-end;
-  /* align-items: center; */
-  /* justify-content: space-around; */
 }
 .greet div:nth-child(1) {
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
-  /* width: 60%; */
   width: 30%;
 }
 .owner {
   font-size: 4.5rem;
   color: black;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 .search {
   position: relative;

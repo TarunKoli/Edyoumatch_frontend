@@ -51,6 +51,7 @@ const Login = () => {
         setEmail("");
         setPass("");
         window.localStorage.setItem("userId", res.data.userId);
+        window.localStorage.setItem("username", res.data.username);
         setCookie(null, "jwt", res.data.token, {
           maxAge: 2 * 24 * 60 * 60,
           path: "/",

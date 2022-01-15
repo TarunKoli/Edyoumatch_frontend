@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { PathContext } from "../PagesContext";
 import styles from "../../styles/Saved.module.css";
 import cookies from "nookies";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const SavedInterest = () => {
   const [path, setPath] = useContext(PathContext);
@@ -9,13 +11,14 @@ const SavedInterest = () => {
   let [index, setIndex] = useState(0);
   let [postIndex, setPostIndex] = useState(0);
   const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       setPath("saved");
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/posts/getSavedPosts/${
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/getSavedPosts/${
           cookies.get("jwt").jwt
         }`
       );
@@ -27,6 +30,46 @@ const SavedInterest = () => {
     fetchData();
     //eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setError(null);
+    }
+  }, [error]);
+
+  async function removePost(id) {
+    var data = {
+      postId: id,
+      token: cookies.get("jwt"),
+    };
+    const res = await axios({
+      url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/removePost`,
+      method: "POST",
+      data: data,
+      withCredentials: true,
+    });
+
+    if (res.status === 202) {
+      toast.success(res.data.msg, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }
 
   function minusSlide() {
     setIndex((prev) => {
@@ -50,7 +93,12 @@ const SavedInterest = () => {
           {posts.map((college, p) => {
             return (
               <div className={styles.postWrapper} key={p}>
-                <div className={styles.remove}>
+                <div
+                  className={styles.remove}
+                  onClick={() => {
+                    removePost(college._id);
+                  }}
+                >
                   <i className="fas fa-times"></i>
                 </div>
                 <div

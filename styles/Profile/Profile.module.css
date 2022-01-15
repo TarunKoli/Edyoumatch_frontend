@@ -144,7 +144,6 @@
 }
 .camera input {
   position: absolute;
-  border: 2px solid red;
   width: 100%;
   height: 100%;
   top: 0;
@@ -318,9 +317,10 @@
   .secondBox {
     flex-wrap: wrap;
     padding: 0;
+    justify-content: center;
   }
   .image {
-    flex-basis: 100%;
+    flex-basis: 20%;
     text-align: center;
     margin-bottom: 2rem;
     height: auto;
