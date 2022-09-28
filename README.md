@@ -34,6 +34,14 @@
 - Click or touch right on post to move to rightmost image.
 - Additionally a more details sections, regarding the post.
 
+<div style="display:flex; align-items:center;">
+
+<img src="./assets/post_not.png" alt="post_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/post_int.png" alt="post_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/more_details.png" alt="post_page" width="200px" />
+
+</div>
+
 <img src="./assets/explore.gif" alt="login_page" style="margin:0.5rem 0"/>
 
 ## **Profile Section**
@@ -43,9 +51,25 @@
 - Change profile pic by clicking on the image avatar and select a new image from file explorer.
 - Manage your account changing password, deactivating account, deleting account etc.
 
+<div style="display:flex; align-items:center;">
+
+<img src="./assets/profile_mob1.png" alt="profile_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/profile_mob2.png" alt="profile_page" width="200px" style="margin-right:0.5rem" />
+
+</div>
+
+<img src="./assets/Profile.png" alt="Profile_page" style="margin:0.5rem 0"/>
+
 ## **Scholarships & loans pages**
 
 - Explore various scholarships and educational loans offered by various universities accross the world.
+
+<div style="display:flex; align-items:center;">
+
+<img src="./assets/loans_mob.png" alt="Loans_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/scholarship_mob.png" alt="Scholarship_page" width="200px" style="margin-right:0.5rem" />
+
+</div>
 
 <img src="./assets/scholarship.png" alt="scholarships_page" style="margin:0.5rem 0"/>
 <img src="./assets/loans.png" alt="loans_page" style="margin:0.5rem 0"/>
@@ -57,7 +81,8 @@
 - Share Post with other peoples, get reviews.
 
 <div style="display:flex; align-items:center;">
-<img src="./assets/login.png" alt="login_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/chat_mob1.png" alt="chat_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/chat_mob2.png" alt="chat_page" width="200px" style="margin-right:0.5rem" />
 </div>
 
 <img src="./assets/chats.png" alt="Chats_page" style="margin:0.5rem 0"/>
@@ -67,4 +92,9 @@
 - Explore courses offered by the colleges & universities.
 - Buy Courses and start your learning.
 
-<img src="./assets/home.png" alt="login_page" style="margin:0.5rem 0"/>
+<div style="display:flex; align-items:center;">
+<img src="./assets/home_mob1.png" alt="home_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/home_mob2.png" alt="home_page" width="200px" style="margin-right:0.5rem" />
+</div>
+
+<img src="./assets/home.png" alt="home_page" style="margin:0.5rem 0"/>
