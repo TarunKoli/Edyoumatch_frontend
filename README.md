@@ -14,7 +14,14 @@
 ## **Signup/Login pages**
 
 - Register and verify your account.
+- An email will be automatically sent for verification.
 - Login to explore various education posts and courses.
+
+<img src="./assets/login.png" alt="login_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/signup.png" alt="signup_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/emailer.png" alt="emailer" width="200px" />
+
+<img src="./assets/login.gif" alt="login_page" style="margin:0.5rem 0"/>
 
 ## **Explore Tab**
 
