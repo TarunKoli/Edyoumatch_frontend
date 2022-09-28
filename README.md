@@ -67,7 +67,7 @@
 <div style="display:flex; align-items:center;">
 
 <img src="./assets/loans_mob.png" alt="Loans_page" width="200px" style="margin-right:0.5rem" />
-<img src="./assets/scholarship_mob.png" alt="Scholarship_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/Scholarship_mob.png" alt="Scholarship_page" width="200px" style="margin-right:0.5rem" />
 
 </div>
 
