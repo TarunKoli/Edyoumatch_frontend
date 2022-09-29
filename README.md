@@ -9,7 +9,7 @@
 - Apply for various educational loans and scholarships
 - Chat with peoples
 - Buy on-demand courses offered by variuos colleges.
-- Responsive design (Mobile & Desktop)
+- Responsive design and animations (Mobile & Desktop)
 
 ## **Signup/Login pages**
 
@@ -71,10 +71,10 @@
 
 </div>
 
-<img src="./assets/scholarship.png" alt="scholarships_page" style="margin:0.5rem 0"/>
-<img src="./assets/loans.png" alt="loans_page" style="margin:0.5rem 0"/>
+<img src="./assets/scholarship.png" alt="scholarships_page" style="margin-top:0.5rem"/>
+<img src="./assets/loans.png" alt="loans_page" style="margin-bottom:0.5rem"/>
 
-## **Chats**
+## **Chats (Ongoing feature)**
 
 - Chat with your connections.
 - Get in contact with university peoples through connections.
@@ -87,6 +87,22 @@
 
 <img src="./assets/chats.png" alt="Chats_page" style="margin:0.5rem 0"/>
 
+## **Admin Section**
+
+- Authroized for admins only.
+- Create post and add new posts.
+- Edit existing posts.
+- Delete irrelevant posts.
+- Add new scholarships and Education loans
+- Intelligent and responsive UI.
+
+<div style="display:flex; align-items:center;">
+<img src="./assets/Admin_mob1.png" alt="home_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/Admin_mob2.png" alt="home_page" width="200px" style="margin-right:0.5rem" />
+</div>
+
+<img src="./assets/Admin.png" alt="home_page" style="margin:0.5rem 0"/>
+
 ## **Home- Course Section (Upcoming feature)**
 
 - Explore courses offered by the colleges & universities.
@@ -98,3 +114,16 @@
 </div>
 
 <img src="./assets/home.png" alt="home_page" style="margin:0.5rem 0"/>
+
+## **Support Pages**
+
+- Seek help on help page, going through most pointed queries.
+- Contact Admins for bug related issues
+
+<div style="display:flex; align-items:center;">
+<img src="./assets/contact_us_mob.png" alt="home_page" width="200px" style="margin-right:0.5rem" />
+<img src="./assets/help_mob.png" alt="home_page" width="200px" style="margin-right:0.5rem" />
+</div>
+
+<img src="./assets/contact_us.png" alt="home_page" style="margin-top:0.5rem"/>
+<img src="./assets/help.png" alt="home_page" style="margin-bottom:0.5rem"/>
